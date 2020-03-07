@@ -4,17 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
   entry: {
     main: './src/scripts/main'
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'public')
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-      contentBase: './public'
   },
   module: {
     rules: [
