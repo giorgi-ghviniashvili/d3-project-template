@@ -1,4 +1,4 @@
-import {select, event} from 'd3-selection';
+import {select} from 'd3-selection';
 import 'd3-transition';
 
 class Chart {
@@ -20,10 +20,10 @@ class Chart {
     this.params = params;
     this.container = select(params.container || 'body');
 
-    this.setChartDimenstions();
+    this.setChartDimensions();
   }
   
-  setChartDimenstions() {
+  setChartDimensions() {
     let { width, height, margin } = this.params;
 
     if (!width) {
@@ -58,9 +58,13 @@ class Chart {
       this.chart.selectAll('circle')
         .data(this.params.data)
         .join(
-          enter => enter.append('circle')
+          enter => enter
+            .append('circle')
             .attr('cx', d => d.x)
             .attr('cy', d => d.y)
+            .attr('r', 0)
+            .transition()
+            .duration(this.params.transitionTime)
             .attr('r', d => d.y)
             .attr('fill', 'navy'),
           update => update,
