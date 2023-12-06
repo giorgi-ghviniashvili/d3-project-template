@@ -11,7 +11,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
-    "vite": "^4.4.9"
+    "vite": "^4.4.12"
   },
   "dependencies": {
     "d3": "^7.8.5",
